@@ -33,14 +33,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var AnswerCButton: UIButton!
     @IBOutlet weak var AnswerDButton: UIButton!
     // dictionary - Int key: tuple(String, [String]) value
-    let questionSheet:[Int: (question:String, answer:[String]) ] = [0:(question:"Question1", answer: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"]),
-                                                                    1:(question:"Question2", answer: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"])]
+    let questionSheet:[Int: (question:String, answer:[String]) ] = [0:(question:"Question1",
+                                                                       answer: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"]),
+                                                                    1:(question:"Question2",
+                                                                       answer: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"])]
 //                                                                    2:"",
 //                                                                    3:"",
 //                                                                    4:"",
 //                                                                    5:"",
 //                                                                    6:"",
 //                                                                    7:"",]
+    
+    var score = 0
+    var isGuessCorrect = false
+    var isAnswerCorrect = false
+    var currentQuestionIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadQuestion(questionNumber: Int) {
+        if let question = questionSheet[questionNumber]?.question {
+            TriviaQuestionLabel.text = question
+        } else {
+            TriviaQuestionLabel.text = "err: No question"
+            return
+        }
+    }
+    
+    
 
 }
 
