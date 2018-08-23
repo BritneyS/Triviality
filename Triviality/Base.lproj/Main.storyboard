@@ -25,22 +25,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-nL-eJG" userLabel="ButtonA">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-nL-eJG" userLabel="AnswerAButton">
                                 <rect key="frame" x="58" y="344" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504568261829" green="1" blue="0.87133482410303853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-OQ-bfh" userLabel="ButtonB">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-OQ-bfh" userLabel="AnswerBButton">
                                 <rect key="frame" x="58" y="434" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cst-hW-Hd0" userLabel="ButtonC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cst-hW-Hd0" userLabel="AnswerCButton">
                                 <rect key="frame" x="58" y="524" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcB-vE-4f8" userLabel="ButtonD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcB-vE-4f8" userLabel="AnswerDButton">
                                 <rect key="frame" x="58" y="614" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,9 +78,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="AnswerAButton" destination="gDL-nL-eJG" id="v5a-Xc-zYT"/>
                         <outlet property="AnswerALabel" destination="YcE-bd-SgI" id="hY2-RS-zUT"/>
+                        <outlet property="AnswerBButton" destination="dM1-OQ-bfh" id="Ysi-QC-s7d"/>
                         <outlet property="AnswerBLabel" destination="nIz-5y-63d" id="aVV-Xn-Zcr"/>
+                        <outlet property="AnswerCButton" destination="cst-hW-Hd0" id="ILQ-cp-ROh"/>
                         <outlet property="AnswerCLabel" destination="6RP-9u-QK7" id="yTN-Py-DQm"/>
+                        <outlet property="AnswerDButton" destination="NcB-vE-4f8" id="YQz-VR-CAc"/>
                         <outlet property="AnswerDLabel" destination="pnW-FT-aIN" id="oj8-iJ-42c"/>
                         <outlet property="TriviaQuestionLabel" destination="Yu3-aP-v3m" id="uFJ-8w-fU1"/>
                     </connections>

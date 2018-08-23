@@ -28,7 +28,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var AnswerCLabel: UILabel!
     @IBOutlet weak var AnswerDLabel: UILabel!
     
-    
+    @IBOutlet weak var AnswerAButton: UIButton!
+    @IBOutlet weak var AnswerBButton: UIButton!
+    @IBOutlet weak var AnswerCButton: UIButton!
+    @IBOutlet weak var AnswerDButton: UIButton!
     
     
     override func viewDidLoad() {
