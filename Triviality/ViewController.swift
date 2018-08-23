@@ -32,7 +32,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var AnswerBButton: UIButton!
     @IBOutlet weak var AnswerCButton: UIButton!
     @IBOutlet weak var AnswerDButton: UIButton!
-    
+    // dictionary - Int key: tuple(String, [String]) value
+    let questionSheet:[Int: (question:String, answer:[String]) ] = [0:(question:"Question1", answer: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"]),
+                                                                    1:(question:"Question2", answer: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"])]
+//                                                                    2:"",
+//                                                                    3:"",
+//                                                                    4:"",
+//                                                                    5:"",
+//                                                                    6:"",
+//                                                                    7:"",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
