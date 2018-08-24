@@ -46,29 +46,15 @@ class ViewController: UIViewController {
     var isAnswerCorrect = false
     var currentQuestionIndex = 0
     var correctAnswer = 0
-    
-    let questionOne = Question(question: "Question One?", answers: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"], correctAnswer: 1)
-    let questionTwo = Question(question: "Question Two?", answers: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"], correctAnswer: 3)
-    let questionThree = Question(question: "Question Three?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0)
-    let questionFour = Question(question: "Question Four?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0)
-    /*
-     class MyOwn {
-     let myUser: User
-     var life: Int
-     
-         init() {
-         self.myUser = User(name: "John", age: 100)
-         self.life = myUser.age
-         }
-     }
-     */
-    var questions:[Question]
+    var userGuess:String?
+    var questions:[Question] = []
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setQuestions()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -78,30 +64,17 @@ class ViewController: UIViewController {
     }
     
     func setQuestions() {
-        self.questions = [questionOne, questionTwo, questionThree, questionFour]
-//        self.questions = [0:(question:"Question1",
-//                             answer: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"],
-//                             correctAnswer: 1),
-//                          1:(question:"Question2",
-//                             answer: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"], correctAnswer: 3)]
-        //                                                                    2:"",
-        //                                                                    3:"",
-        //                                                                    4:"",
-        //                                                                    5:"",
-        //                                                                    6:"",
-        //                                                                    7:"",]
+        self.questions = [Question(question: "Question One?", answers: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"], correctAnswer: 1),
+            Question(question: "Question Two?", answers: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"], correctAnswer: 3),
+            Question(question: "Question Three?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0),
+            Question(question: "Question Four?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0)]
+
     }
     
 
     func loadQuestion(questionNumber: Int) {
-        //if let question = questions[questionNumber]?.question {
-            TriviaQuestionLabel.text = questions[questionNumber].question
-//        } else {
-//            TriviaQuestionLabel.text = "err: No question"
-//            return
-//        }
+        TriviaQuestionLabel.text = questions[questionNumber].question
     }
-    
     
     
     func checkGuess(questionIndex:Int, guess: String) {
@@ -116,6 +89,52 @@ class ViewController: UIViewController {
         }
       
     }
+    
+    /*@IBOutlet weak var frenchButton: UIButton!
+     @IBOutlet weak var spanishButton: UIButton!
+     @IBOutlet weak var englishButton: UIButton!
+     You would connect all of them to the same method, and branch the logic based on which one was the sender. e.g.:
+     
+     @IBAction func changeLanguage(sender: UIButton) {
+     switch sender {
+     case frenchButton:
+     // Change Language to French
+     print ("C'est si bon")
+     case spanishButton:
+     // or Spanish
+     print ("Muy Bueno")
+     case englishButton:
+     // or English
+     print ("It's pretty cool")
+     default:
+     break
+     
+     }
+     
+     }*/
+    
+    @IBAction func chooseAnswerButtonAction(sender: UIButton) {
+        
+        if var guess = userGuess {
+            switch sender {
+            case AnswerAButton:
+                guess = AnswerALabel.text!
+            case AnswerBButton:
+                guess = AnswerBLabel.text!
+            case AnswerCButton:
+                guess = AnswerCLabel.text!
+            case AnswerDButton:
+                guess = AnswerCLabel.text!
+            default:
+                print("Invalid response")
+                return
+            }
+            
+            checkGuess(questionIndex: currentQuestionIndex, guess: guess)
+        }
+        
+    }
+    
 
 }
 

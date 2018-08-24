@@ -29,21 +29,33 @@
                                 <rect key="frame" x="58" y="344" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504568261829" green="1" blue="0.87133482410303853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="chooseAnswerButtonActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gnX-yF-KsU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dM1-OQ-bfh" userLabel="AnswerBButton">
                                 <rect key="frame" x="58" y="434" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="chooseAnswerButtonActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lZm-9W-ynI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cst-hW-Hd0" userLabel="AnswerCButton">
                                 <rect key="frame" x="58" y="524" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="chooseAnswerButtonActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rKe-9q-Gy9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcB-vE-4f8" userLabel="AnswerDButton">
                                 <rect key="frame" x="58" y="614" width="258" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.79347504570000005" green="1" blue="0.87133482409999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="chooseAnswerButtonActionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2mU-ft-RU4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AnswerALabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-bd-SgI">
                                 <rect key="frame" x="58" y="344" width="258" height="48"/>
