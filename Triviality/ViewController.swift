@@ -89,7 +89,20 @@ class ViewController: UIViewController {
             setAnswers(questionNumber: questionNumber)
         } else {
             // game over, display total score
+            gameOver()
+            displayScore()
         }
+    }
+    
+    func gameOver() {
+        AnswerAButton.isEnabled = false
+        AnswerBButton.isEnabled = false
+        AnswerCButton.isEnabled = false
+        AnswerDButton.isEnabled = false
+    }
+    
+    func displayScore() {
+        print("Total score: \(score)")
     }
     
     
@@ -106,12 +119,14 @@ class ViewController: UIViewController {
             self.score+=1
             print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
+            currentQuestionIndex+=1
         } else {
             //flash red
             print("guess wrong")
             self.score-=1
             print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
+            currentQuestionIndex+=1
         }
       
     }
