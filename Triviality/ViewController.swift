@@ -92,14 +92,17 @@ class ViewController: UIViewController {
     
     func checkGuess(questionIndex:Int, guess:String) {
         let correct = questions[questionIndex].answers[correctAnswer]
+        print("Current question: \(questions[questionIndex])")
         print("Correct answer: \(correct)")
         if guess == correct {
             print("guess correct")
             self.score+=1
+            print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
         } else {
             print("guess wrong")
             self.score-=1
+            print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
         }
       
@@ -109,24 +112,28 @@ class ViewController: UIViewController {
     @IBAction func chooseAnswerButtonAction(sender: UIButton) {
         print("button pressed")
         
-        switch sender {
-        case AnswerAButton:
-            userGuess = AnswerALabel.text!
-            print("AnswerALabel is guess: \(userGuess)")
-        case AnswerBButton:
-            userGuess = AnswerBLabel.text!
-            print("AnswerBLabel is guess: \(userGuess)")
-        case AnswerCButton:
-            userGuess = AnswerCLabel.text!
-            print("AnswerCLabel is guess: \(userGuess)")
-        case AnswerDButton:
-            userGuess = AnswerDLabel.text!
-            print("AnswerDLabel is guess: \(userGuess)")
-        default:
-            print("Invalid response")
-            return
+        if userGuess != nil {
+            switch sender {
+            case AnswerAButton:
+                userGuess = AnswerALabel.text!
+                print("AnswerALabel is guess: \(userGuess!)")
+            case AnswerBButton:
+                userGuess = AnswerBLabel.text!
+                print("AnswerBLabel is guess: \(userGuess!)")
+            case AnswerCButton:
+                userGuess = AnswerCLabel.text!
+                print("AnswerCLabel is guess: \(userGuess!)")
+            case AnswerDButton:
+                userGuess = AnswerDLabel.text!
+                print("AnswerDLabel is guess: \(userGuess!)")
+            default:
+                print("Invalid response")
+                return
+            }
+            checkGuess(questionIndex: currentQuestionIndex, guess: userGuess!)
+        } else {
+            print("Nothing is happening because userGuess is nil")
         }
-        
 //        if var guess = userGuess {
 //            print("User guess is \(guess) if it even gets here")
 //            switch sender {
