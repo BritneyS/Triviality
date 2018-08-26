@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     var isAnswerCorrect = false
     var currentQuestionIndex = 0
     var correctAnswer = 0
-    var userGuess:String?
+    var userGuess:String? = ""
     var questions:[Question] = []
     
     
@@ -54,13 +54,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setQuestions()
+        startGame()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func startGame() {
+        print("Start!")
+        setQuestions()
+        loadQuestion(questionNumber: 0)
     }
     
     func setQuestions() {
@@ -71,70 +77,83 @@ class ViewController: UIViewController {
 
     }
     
+    func setAnswers(questionNumber:Int) {
+        AnswerALabel.text = questions[questionNumber].answers[0]
+        AnswerBLabel.text = questions[questionNumber].answers[1]
+        AnswerCLabel.text = questions[questionNumber].answers[2]
+        AnswerDLabel.text = questions[questionNumber].answers[3]
+    }
 
-    func loadQuestion(questionNumber: Int) {
+    func loadQuestion(questionNumber:Int) {
         TriviaQuestionLabel.text = questions[questionNumber].question
+        setAnswers(questionNumber: questionNumber)
     }
     
     
-    func checkGuess(questionIndex:Int, guess: String) {
+    func checkGuess(questionIndex:Int, guess:String) {
         let correct = questions[questionIndex].answers[correctAnswer]
         print("Correct answer: \(correct)")
         if guess == correct {
+            print("guess correct")
             self.score+=1
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
         } else {
+            print("guess wrong")
             self.score-=1
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
         }
       
     }
     
-    /*@IBOutlet weak var frenchButton: UIButton!
-     @IBOutlet weak var spanishButton: UIButton!
-     @IBOutlet weak var englishButton: UIButton!
-     You would connect all of them to the same method, and branch the logic based on which one was the sender. e.g.:
-     
-     @IBAction func changeLanguage(sender: UIButton) {
-     switch sender {
-     case frenchButton:
-     // Change Language to French
-     print ("C'est si bon")
-     case spanishButton:
-     // or Spanish
-     print ("Muy Bueno")
-     case englishButton:
-     // or English
-     print ("It's pretty cool")
-     default:
-     break
-     
-     }
-     
-     }*/
     
     @IBAction func chooseAnswerButtonAction(sender: UIButton) {
+        print("button pressed")
         
-        if var guess = userGuess {
-            switch sender {
-            case AnswerAButton:
-                guess = AnswerALabel.text!
-            case AnswerBButton:
-                guess = AnswerBLabel.text!
-            case AnswerCButton:
-                guess = AnswerCLabel.text!
-            case AnswerDButton:
-                guess = AnswerCLabel.text!
-            default:
-                print("Invalid response")
-                return
-            }
-            
-            checkGuess(questionIndex: currentQuestionIndex, guess: guess)
+        switch sender {
+        case AnswerAButton:
+            userGuess = AnswerALabel.text!
+            print("AnswerALabel is guess: \(userGuess)")
+        case AnswerBButton:
+            userGuess = AnswerBLabel.text!
+            print("AnswerBLabel is guess: \(userGuess)")
+        case AnswerCButton:
+            userGuess = AnswerCLabel.text!
+            print("AnswerCLabel is guess: \(userGuess)")
+        case AnswerDButton:
+            userGuess = AnswerDLabel.text!
+            print("AnswerDLabel is guess: \(userGuess)")
+        default:
+            print("Invalid response")
+            return
         }
         
+//        if var guess = userGuess {
+//            print("User guess is \(guess) if it even gets here")
+//            switch sender {
+//            case AnswerAButton:
+//                guess = AnswerALabel.text!
+//                print("AnswerALabel is guess: \(guess)")
+//            case AnswerBButton:
+//                guess = AnswerBLabel.text!
+//                print("AnswerBLabel is guess: \(guess)")
+//            case AnswerCButton:
+//                guess = AnswerCLabel.text!
+//                print("AnswerCLabel is guess: \(guess)")
+//            case AnswerDButton:
+//                guess = AnswerDLabel.text!
+//                print("AnswerDLabel is guess: \(guess)")
+//            default:
+//                print("Invalid response")
+//                return
+//            }
+//            print("Guess is \(guess)")
+//            checkGuess(questionIndex: currentQuestionIndex, guess: guess)
+//        } else {
+//            print("Nothing is happening because userGuess is nil")
+//        }
+//
     }
     
-
+    
 }
 
