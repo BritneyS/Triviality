@@ -103,6 +103,10 @@ class ViewController: UIViewController {
     
     func displayScore() {
         print("Total score: \(score)")
+        let scoreAlert = UIAlertController(title: "Game Over", message: "Total Score: \(self.score)", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: "Continue", style: .default) { (action:UIAlertAction!) in self.startGame() }
+        scoreAlert.addAction(continueAction)
+        self.present(scoreAlert, animated: true, completion:nil)
     }
     
     
