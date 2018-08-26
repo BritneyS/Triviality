@@ -45,7 +45,6 @@ class ViewController: UIViewController {
     var isGuessCorrect = false
     var isAnswerCorrect = false
     var currentQuestionIndex = 0
-    //var correctAnswer = 0
     var userGuess:String? = ""
     var questions:[Question] = []
     
@@ -85,8 +84,12 @@ class ViewController: UIViewController {
     }
 
     func loadQuestion(questionNumber:Int) {
-        TriviaQuestionLabel.text = questions[questionNumber].question
-        setAnswers(questionNumber: questionNumber)
+        if questionNumber < questions.count {
+            TriviaQuestionLabel.text = questions[questionNumber].question
+            setAnswers(questionNumber: questionNumber)
+        } else {
+            // game over, display total score
+        }
     }
     
     
@@ -98,11 +101,13 @@ class ViewController: UIViewController {
         print("Current question: \(questions[questionIndex].question)")
         print("Correct answer: \(correct)")
         if guess == correct {
+            //flash green
             print("guess correct")
             self.score+=1
             print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
         } else {
+            //flash red
             print("guess wrong")
             self.score-=1
             print("Score: \(score)")
