@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     var isGuessCorrect = false
     var isAnswerCorrect = false
     var currentQuestionIndex = 0
-    var correctAnswer = 0
+    //var correctAnswer = 0
     var userGuess:String? = ""
     var questions:[Question] = []
     
@@ -91,8 +91,11 @@ class ViewController: UIViewController {
     
     
     func checkGuess(questionIndex:Int, guess:String) {
-        let correct = questions[questionIndex].answers[correctAnswer]
-        print("Current question: \(questions[questionIndex])")
+        print("Current question index: \(questionIndex)")
+        let correctAnswerIndex = questions[questionIndex].correctAnswer
+        print("Correct Answer index: \(correctAnswerIndex)")
+        let correct = questions[questionIndex].answers[correctAnswerIndex]
+        print("Current question: \(questions[questionIndex].question)")
         print("Correct answer: \(correct)")
         if guess == correct {
             print("guess correct")
