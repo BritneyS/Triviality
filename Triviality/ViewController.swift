@@ -73,8 +73,8 @@ class ViewController: UIViewController {
     }
     
     func setQuestions() {
-        self.questions = [Question(question: "Question One?", answers: ["AnswerA","AnswerBCorrect","AnswerC","AnswerD"], correctAnswer: 1),
-            Question(question: "Question Two?", answers: ["AnswerA","AnswerB","AnswerC","AnswerDCorrect"], correctAnswer: 3),
+        self.questions = [Question(question: "What is the name of Luke Skywalker's birth mother?", answers: ["Donald Glover","Princess Amydala","Princess Amygdala","Jar Jar Binks"], correctAnswer: 1),
+            Question(question: "In the Infinity War comics, who is Thanos in love with?", answers: ["Wonder Woman","Scarlet Witch","Black Widow","Lady Death"], correctAnswer: 3),
             Question(question: "Question Three?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0),
             Question(question: "Question Four?", answers: ["AnswerACorrect","AnswerB","AnswerC","AnswerD"], correctAnswer: 0)]
 
@@ -102,6 +102,15 @@ class ViewController: UIViewController {
             // game over, display total score
             gameOver()
             displayScore()
+        }
+    }
+    
+    func checkLoseGame() {
+        if self.wrongAnswerCounter == 3 {
+            gameOver()
+            displayScore()
+        } else {
+            return
         }
     }
     
@@ -160,6 +169,7 @@ class ViewController: UIViewController {
             })
             print("guess wrong")
             self.wrongAnswerCounter+=1
+            checkLoseGame()
             self.score-=1
             print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
