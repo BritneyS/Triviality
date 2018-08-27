@@ -47,7 +47,8 @@ class ViewController: UIViewController {
     var currentQuestionIndex = 0
     var userGuess:String? = ""
     var questions:[Question] = []
-    var finished = true
+    //var finished = true
+    var wrongAnswerCounter = 0
     
     
     
@@ -65,6 +66,8 @@ class ViewController: UIViewController {
     
     func startGame() {
         print("Start!")
+        setAttributes()
+        resetButtons()
         setQuestions()
         loadQuestion(questionNumber: 0)
     }
@@ -83,6 +86,12 @@ class ViewController: UIViewController {
         AnswerCLabel.text = questions[questionNumber].answers[2]
         AnswerDLabel.text = questions[questionNumber].answers[3]
     }
+    
+    func setAttributes() {
+        self.score = 0
+        self.currentQuestionIndex = 0
+        self.wrongAnswerCounter = 0
+    }
 
     func loadQuestion(questionNumber:Int) {
         //self.view.backgroundColor = UIColor.white
@@ -97,10 +106,19 @@ class ViewController: UIViewController {
     }
     
     func gameOver() {
+        print("buttons disabled")
         AnswerAButton.isEnabled = false
         AnswerBButton.isEnabled = false
         AnswerCButton.isEnabled = false
         AnswerDButton.isEnabled = false
+    }
+    
+    func resetButtons() {
+        print("buttons enabled")
+        AnswerAButton.isEnabled = true
+        AnswerBButton.isEnabled = true
+        AnswerCButton.isEnabled = true
+        AnswerDButton.isEnabled = true
     }
     
     func displayScore() {
@@ -141,6 +159,7 @@ class ViewController: UIViewController {
                 self.view.backgroundColor = UIColor.white
             })
             print("guess wrong")
+            self.wrongAnswerCounter+=1
             self.score-=1
             print("Score: \(score)")
             loadQuestion(questionNumber: (questionIndex + 1))//move on to next question
