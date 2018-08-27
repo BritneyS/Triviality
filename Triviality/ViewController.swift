@@ -47,6 +47,7 @@ class ViewController: UIViewController {
     var currentQuestionIndex = 0
     var userGuess:String? = ""
     var questions:[Question] = []
+    var finished = true
     
     
     
@@ -84,6 +85,7 @@ class ViewController: UIViewController {
     }
 
     func loadQuestion(questionNumber:Int) {
+        //self.view.backgroundColor = UIColor.white
         if questionNumber < questions.count {
             TriviaQuestionLabel.text = questions[questionNumber].question
             setAnswers(questionNumber: questionNumber)
@@ -119,6 +121,12 @@ class ViewController: UIViewController {
         print("Correct answer: \(correct)")
         if guess == correct {
             //flash green
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = UIColor.green
+            })
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = UIColor.white
+            })
             print("guess correct")
             self.score+=1
             print("Score: \(score)")
@@ -126,6 +134,12 @@ class ViewController: UIViewController {
             currentQuestionIndex+=1
         } else {
             //flash red
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = UIColor.red
+            })
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = UIColor.white
+            })
             print("guess wrong")
             self.score-=1
             print("Score: \(score)")
@@ -161,31 +175,7 @@ class ViewController: UIViewController {
         } else {
             print("Nothing is happening because userGuess is nil")
         }
-//        if var guess = userGuess {
-//            print("User guess is \(guess) if it even gets here")
-//            switch sender {
-//            case AnswerAButton:
-//                guess = AnswerALabel.text!
-//                print("AnswerALabel is guess: \(guess)")
-//            case AnswerBButton:
-//                guess = AnswerBLabel.text!
-//                print("AnswerBLabel is guess: \(guess)")
-//            case AnswerCButton:
-//                guess = AnswerCLabel.text!
-//                print("AnswerCLabel is guess: \(guess)")
-//            case AnswerDButton:
-//                guess = AnswerDLabel.text!
-//                print("AnswerDLabel is guess: \(guess)")
-//            default:
-//                print("Invalid response")
-//                return
-//            }
-//            print("Guess is \(guess)")
-//            checkGuess(questionIndex: currentQuestionIndex, guess: guess)
-//        } else {
-//            print("Nothing is happening because userGuess is nil")
-//        }
-//
+        
     }
     
     
